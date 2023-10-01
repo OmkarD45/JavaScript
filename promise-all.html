@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log("First promise has resolved");
+          resolve(10);
+        }, 1 * 1000);
+      });
+
+      let p2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log("Second promise has resolved");
+        }, 2 * 1000);
+        resolve(20);
+      });
+
+      let p3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log("third promise has resolved");
+          resolve(30);
+        }, 3 * 1000);
+      });
+      Promise.all([p1, p2, p3])
+        .then((result) => {
+          console.log(`Results: ${result}`);
+        })
+        .catch(() => {
+          console.log(`Error: ${error}`);
+        });
+
+      let promiseCall = function (returnData, message) {
+        return function (resolve, reject) {
+          setTimeout(() => {
+            console.log(`${message} promise has resolved`);
+            resolve(returnData);
+          }, returnData * 100);
+        };
+      };
+      let p4 = new Promise(promiseCall(40, "Fourth"));
+      let p5 = new Promise(promiseCall(50, "fifth"));
+      let p6 = new Promise(promiseCall(60, "sixth"));
+      Promise.all([p4, p5, p6])
+        .then((result) => {
+          console.log(`Results: ${result}`);
+        })
+        .catch(() => {
+          console.log(`Error: ${error}`);
+        });
+    </script>
+  </head>
+  <body>
+    <h1>Promise all</h1>
+  </body>
+</html>
