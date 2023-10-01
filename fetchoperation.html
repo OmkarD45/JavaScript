@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Operation</title>
+</head>
+<body>
+    <script>
+        var obj={
+            "id": 4,
+            "name": "Sanket",
+            "email": "Sin@april.biz"
+        }
+        fetch("content/readme.json",{
+            method:'POST',
+            body:JSON.stringify(obj),
+            headers:{
+                'Content-type':'application/json; charset==UTF-8',
+            },
+        })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+    </script>
+</body>
+</html>

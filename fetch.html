@@ -19,6 +19,17 @@
         }).catch((error)=>{
             console.log("Can't Fetch my data")
         });
+
+        fetch("content/readme.txt")
+        .then((response)=>{
+            return response.text();
+        })
+        .then((data)=>{
+            console.log(data);
+                document.write(`${data} <br><br><br>`);
+        }).catch((error)=>{
+            console.log("Can't Fetch my data")
+        });
     </script>
 </body>
 </html>
