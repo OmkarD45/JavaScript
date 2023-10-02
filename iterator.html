@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterator </title>
+    <script>
+        let numbers=[100,200,300];
+        let itr=numbers[Symbol.iterator]();
+        let result=itr.next();
+        while(!result.done){
+            console.log(result.value);
+            result=itr.next();
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

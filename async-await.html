@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async & Await</title>
+    <script>
+        async function test(){
+            console.log("2: Message");
+            const response= await fetch("content/readme.json");
+            const students= await response.json();
+            console.log("3: Message");
+            return students;
+        }
+        console.log("1: Message");
+        test().then((res)=>{
+            console.log(res);
+        }).catch((error)=>{
+            console.log(error);
+        });
+        console.log("4: Message");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
